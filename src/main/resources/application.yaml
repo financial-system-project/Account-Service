@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/accountdb
+    username: ${DB_USER:admin}
+    password: ${DB_PASSWORD:secret123}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+user:
+  service:
+    url: http://user-service:8080   # Kubernetes service name
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-account-config
+  namespace: bank-app
+data:
+  POSTGRES_DB: accountdb
+  POSTGRES_USER: admin
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-account-secret
+  namespace: bank-app
+type: Opaque
+stringData:
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: secret123
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-account
+  namespace: bank-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-account
+  template:
+    metadata:
+      labels:
+        app: postgres-account
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15-alpine
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-account-config
+            - secretRef:
+                name: postgres-account-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-account
+  namespace: bank-app
+spec:
+  selector:
+    app: postgres-account
+  ports:
+    - port: 5432
+      targetPort: 5432
