@@ -15,7 +15,7 @@ pipeline {
         stage(' 1: cloning repository from GitHub') {
             steps {
                 git branch: 'main' ,
-                url: ' https://github.com/financial-system-project/Account-Service.git ''
+                url: ' https://github.com/financial-system-project/Account-Service.git '
             }
         }
 
