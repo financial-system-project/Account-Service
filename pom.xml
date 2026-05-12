@@ -13,7 +13,7 @@
 <groupId>com.financial</groupId>
 <artifactId>Account-Service</artifactId>
 <version>0.0.1-SNAPSHOT</version>
-<name>user-service</name>
+<name>Account-service</name>
 <description>Account Microservice for Financial System</description>
 
 <properties>
