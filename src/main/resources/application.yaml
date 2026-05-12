@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
@@ -15,9 +15,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
-account:
+user:
   service:
-    url: http://account-service:8081   # Kubernetes service name
+    url: http://user-service:8080   # Kubernetes service name
 
 management:
   endpoints:
