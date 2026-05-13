@@ -59,7 +59,7 @@ pipeline {
                 script {
 
                     // previous build number
-                    def PREVIOUS_BUILD = env.BUILD_NUMBER.toInteger() - 1
+                    def PREVIOUS_BUILD = env.BUILD_NUMBER.toInteger() - 2
 
                     // delete previous image if exists
                     sh """
