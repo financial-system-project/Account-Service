@@ -94,7 +94,7 @@ pipeline {
 
                         git add values.yaml
 
-                        git commit -m "Updated image tag to ${BUILD_NUMBER}"
+                        git commit -m "Updated image tag to ${BUILD_NUMBER} in Account service"
 
                         git push https://\$GITHUB_TOKEN@github.com/financial-system-project/GitOps.git main
                     """

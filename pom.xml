@@ -18,6 +18,7 @@
 
 <properties>
     <java.version>21</java.version>
+    <logstash-encoder.version>7.4</logstash-encoder.version>
 </properties>
 
 <dependencyManagement>
@@ -50,7 +51,13 @@
     <dependency>
         <groupId>net.logstash.logback</groupId>
         <artifactId>logstash-logback-encoder</artifactId>
-        <version>7.4</version>
+        <version>${logstash-encoder.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>2.5.0</version>
     </dependency>
 
     <!-- ✅ ADDED: Validation support for @Valid annotation -->
